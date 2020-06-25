@@ -13,3 +13,6 @@
   (is (= "S" (rotate-left "W")))
   (is (= "E" (rotate-left "S")))
   (is (= "N" (rotate-left "E"))))
+
+(deftest move-returns-a-new-coordinate
+  (is (= {:x 0 :y 1} (move {:x 0 :y 0} "N"))))

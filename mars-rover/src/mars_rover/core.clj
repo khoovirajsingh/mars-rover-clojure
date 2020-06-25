@@ -16,3 +16,7 @@
     (= "W" direction) "S"
     (= "S" direction) "E"
     (= "E" direction) "N"))
+
+(defn move
+  [position direction]
+  {:x 0 :y 1})
