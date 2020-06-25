@@ -3,4 +3,6 @@
 
 (defn rotate-right
   [direction]
-  "E")
+  (cond
+    (= "N" direction) "E"
+    (= "E" direction) "S"))

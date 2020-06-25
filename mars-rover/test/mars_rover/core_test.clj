@@ -3,4 +3,5 @@
             [mars-rover.core :refer :all]))
 
 (deftest rotate-right-changes-direction
-  (is (= "E" (rotate-right "N"))))
+  (is (= "E" (rotate-right "N")))
+  (is (= "S" (rotate-right "E"))))
