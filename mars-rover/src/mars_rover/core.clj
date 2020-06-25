@@ -5,4 +5,7 @@
   [direction]
   (cond
     (= "N" direction) "E"
-    (= "E" direction) "S"))
+    (= "E" direction) "S"
+    (= "S" direction) "W"
+    (= "W" direction) "N"))
+    
