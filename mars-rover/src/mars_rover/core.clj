@@ -31,7 +31,7 @@
   (str/split input #""))
 
 (defn execute
-  [commands]
+  [command mars-rover]
   "0:1:N")
     
     
