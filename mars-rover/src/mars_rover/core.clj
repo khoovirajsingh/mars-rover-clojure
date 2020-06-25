@@ -29,5 +29,9 @@
 (defn commands
   [input]
   (str/split input #""))
+
+(defn execute
+  [commands]
+  "0:1:N")
     
     
