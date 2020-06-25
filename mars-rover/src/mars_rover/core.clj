@@ -19,5 +19,7 @@
 
 (defn move
   [position direction]
-  (let [next-y (inc (:y position))]
-    {:x 0 :y next-y}))
+  (cond
+    (= "N" direction) {:x (:x position) :y (inc (:y position))}
+    (= "S" direction) {:x (dec (:x position)) :y (:y position)}))
+    

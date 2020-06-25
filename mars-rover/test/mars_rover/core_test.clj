@@ -14,6 +14,10 @@
   (is (= "E" (rotate-left "S")))
   (is (= "N" (rotate-left "E"))))
 
-(deftest move-returns-a-new-coordinate
+(deftest move-increments-y-when-direction-is-north
   (is (= {:x 0 :y 1} (move {:x 0 :y 0} "N")))
   (is (= {:x 0 :y 2} (move {:x 0 :y 1} "N"))))
+
+(deftest move-decrements-x-when-direction-is-south
+  (is (= {:x 1 :y 0} (move {:x 2 :y 0} "S")))
+  (is (= {:x 0 :y 0} (move {:x 1 :y 0} "S"))))
