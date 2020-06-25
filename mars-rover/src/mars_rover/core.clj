@@ -21,5 +21,6 @@
   [position direction]
   (cond
     (= "N" direction) {:x (:x position) :y (inc (:y position))}
+    (= "E" direction) {:x (inc (:x position)) :y (:y position)}
     (= "S" direction) {:x (dec (:x position)) :y (:y position)}))
     
