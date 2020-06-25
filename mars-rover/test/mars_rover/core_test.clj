@@ -18,10 +18,14 @@
   (is (= {:x 0 :y 1} (move {:x 0 :y 0} "N")))
   (is (= {:x 0 :y 2} (move {:x 0 :y 1} "N"))))
 
-(deftest move-decrements-x-when-direction-is-south
-  (is (= {:x 1 :y 0} (move {:x 2 :y 0} "S")))
-  (is (= {:x 0 :y 0} (move {:x 1 :y 0} "S"))))
+(deftest move-decrements-y-when-direction-is-south
+  (is (= {:x 0 :y 1} (move {:x 0 :y 2} "S")))
+  (is (= {:x 0 :y 0} (move {:x 0 :y 1} "S"))))
 
 (deftest move-increments-x-when-direction-is-east
   (is (= {:x 1 :y 0} (move {:x 0 :y 0} "E")))
   (is (= {:x 2 :y 0} (move {:x 1 :y 0} "E"))))
+
+(deftest move-decrements-x-when-direction-is-west
+  (is (= {:x 0 :y 0} (move {:x 1 :y 0} "W")))
+  (is (= {:x 1 :y 0} (move {:x 2 :y 0} "W"))))
