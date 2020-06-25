@@ -31,4 +31,5 @@
   (is (= {:x 1 :y 0} (move {:x 2 :y 0} "W"))))
 
 (deftest commands-returns-a-sequence-of-command
-  (is (= ["R"] (commands "R"))))
+  (is (= ["R"] (commands "R")))
+  (is (= ["R" "M"] (commands "RM"))))

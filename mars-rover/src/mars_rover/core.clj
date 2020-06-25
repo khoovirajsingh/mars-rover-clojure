@@ -1,5 +1,6 @@
 (ns mars-rover.core
-  (:gen-class))
+  (:gen-class)
+  (:require [clojure.string :as str]))
 
 (defn rotate-right
   [direction]
@@ -27,6 +28,6 @@
 
 (defn commands
   [input]
-  ["R"])
+  (str/split input #""))
     
     
