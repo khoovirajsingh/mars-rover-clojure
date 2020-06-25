@@ -29,3 +29,6 @@
 (deftest move-decrements-x-when-direction-is-west
   (is (= {:x 0 :y 0} (move {:x 1 :y 0} "W")))
   (is (= {:x 1 :y 0} (move {:x 2 :y 0} "W"))))
+
+(deftest commands-returns-a-sequence-of-command
+  (is (= ["R"] (commands "R"))))

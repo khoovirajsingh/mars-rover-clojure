@@ -24,5 +24,9 @@
     (= "E" direction) {:x (inc (:x position)) :y (:y position)}
     (= "S" direction) {:x (:x position) :y (dec (:y position))}
     (= "W" direction) {:x (dec (:x position)) :y (:y position)}))
+
+(defn commands
+  [input]
+  ["R"])
     
     
