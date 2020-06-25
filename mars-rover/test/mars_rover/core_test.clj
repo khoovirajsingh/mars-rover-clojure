@@ -15,4 +15,5 @@
   (is (= "N" (rotate-left "E"))))
 
 (deftest move-returns-a-new-coordinate
-  (is (= {:x 0 :y 1} (move {:x 0 :y 0} "N"))))
+  (is (= {:x 0 :y 1} (move {:x 0 :y 0} "N")))
+  (is (= {:x 0 :y 2} (move {:x 0 :y 1} "N"))))

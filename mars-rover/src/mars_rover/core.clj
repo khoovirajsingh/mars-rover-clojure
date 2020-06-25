@@ -19,4 +19,4 @@
 
 (defn move
   [position direction]
-  {:x 0 :y 1})
+  {:x 0 :y (inc (:y position))})
