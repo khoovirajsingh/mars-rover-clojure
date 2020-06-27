@@ -19,19 +19,23 @@
     (= "E" direction) "N"))
 
 (defn move
-  [position direction]
-  (cond
-    (= "N" direction) {:x (:x position) :y (inc (:y position))}
-    (= "E" direction) {:x (inc (:x position)) :y (:y position)}
-    (= "S" direction) {:x (:x position) :y (dec (:y position))}
-    (= "W" direction) {:x (dec (:x position)) :y (:y position)}))
+  [mars-rover]
+  (let [x (:x mars-rover)
+        y (:y mars-rover)
+        direction (:direction mars-rover)]
+    (cond
+      (= "N" direction) {:x x :y (inc y) :direction direction}
+      (= "E" direction) {:x (inc x) :y y :direction direction}
+      (= "S" direction) {:x x :y (dec y) :direction direction}
+      (= "W" direction) {:x (dec x) :y y :direction direction})))
 
 (defn commands
   [input]
   (str/split input #""))
 
 (defn execute
-  [command mars-rover]
-  "0:1:N")
+  [commands mars-rover]
+  ("0:0:N"))
+
     
-    
+
