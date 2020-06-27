@@ -35,5 +35,6 @@
 
 (defn execute
   [commands mars-rover]
-  "0:1:N")
+  (let [new-mars-rover (move mars-rover (count commands))]
+    (str (:x new-mars-rover) ":" (:y new-mars-rover) ":" (:direction new-mars-rover))))
 
