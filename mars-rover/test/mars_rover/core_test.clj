@@ -34,7 +34,8 @@
   (is (= ["R"] (parse-commands "R")))
   (is (= ["R" "M"] (parse-commands "RM"))))
 
-(deftest execute-move-commands-returns-new-position-for-mars-rover
-  (is (= {:x 0 :y 3 :direction "N"} (execute "MM" {:x 0 :y 0 :direction "N"}))))
+(deftest execute-commands-returns-new-position-for-mars-rover
+  (is (= {:x 0 :y 3 :direction "S"} (execute "MMRR" {:x 0 :y 0 :direction "N"}))))
+
 
 
