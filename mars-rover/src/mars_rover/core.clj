@@ -2,6 +2,8 @@
   (:gen-class)
   (:require [clojure.string :as str]))
 
+(def rover (atom {:x 0 :y 0 :direction "N"}))
+
 (defn rotate-right
   [direction]
   (cond
@@ -18,23 +20,30 @@
     (= "S" direction) "E"
     (= "E" direction) "N"))
 
+
 (defn move
-  [mars-rover moves]
+  [mars-rover]
   (let [x (:x mars-rover)
         y (:y mars-rover)
         direction (:direction mars-rover)]
     (cond
-      (= "N" direction) {:x x :y (+ y moves) :direction direction}
-      (= "E" direction) {:x (+ x moves) :y y :direction direction}
-      (= "S" direction) {:x x :y (- y moves) :direction direction}
-      (= "W" direction) {:x (- x moves) :y y :direction direction})))
+      (= "N" direction) {:x x :y (+ y 1) :direction direction}
+      (= "E" direction) {:x (+ x 1) :y y :direction direction}
+      (= "S" direction) {:x x :y (- y 1) :direction direction}
+      (= "W" direction) {:x (- x 1) :y y :direction direction})))
 
-(defn commands
+(defn parse-commands
   [input]
   (str/split input #""))
 
+
 (defn execute
-  [commands mars-rover]
-  (let [new-mars-rover (move mars-rover (count commands))]
-    (str (:x new-mars-rover) ":" (:y new-mars-rover) ":" (:direction new-mars-rover))))
+  [input mars-rover]
+  (let [commands (parse-commands input)]
+    (loop [num (count (parse-commands "MMM"))]
+      (if (<= num 0)
+        @rover
+        (do (swap! rover move)
+           (recur (dec num)))))))
+
 
