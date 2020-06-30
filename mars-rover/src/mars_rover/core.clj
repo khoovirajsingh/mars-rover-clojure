@@ -36,14 +36,28 @@
   [input]
   (str/split input #""))
 
-(defn rotate
-  [mars-rover rotation]
+(defn rotate-right
+  [mars-rover]
   (let [x (:x mars-rover)
         y (:y mars-rover)
         direction (:direction mars-rover)]
-    (cond
-      (= "R" rotation) {:x x :y y :direction (rotate-right direction)}
-      (= "L" rotation) {:x x :y y :direction (rotate-left direction)})))
+    {:x x :y y :direction (rotate-right direction)}))
+
+(defn rotate-left
+  [mars-rover]
+  (let [x (:x mars-rover)
+        y (:y mars-rover)
+        direction (:direction mars-rover)]
+    {:x x :y y :direction (rotate-left direction)}))
+
+(defn run-command
+  [mars-rover command]
+  (cond 
+    (= "M" command) (swap! rover move)
+    (= "R" command) (swap! rover rotate-right)
+    (= "L" command) (swap! rover rotate-left)
+    :else rover))
+
 
 (defn execute
   [input mars-rover]
@@ -51,7 +65,6 @@
     (loop [num (count commands)]
       (if (<= num 0)
         @rover
-        (do (swap! rover move)
+        (do (run-command mars-rover "M")
            (recur (dec num)))))))
-
 
